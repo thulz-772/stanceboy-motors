@@ -1,0 +1,283 @@
+/* ===== GLOBAL STYLES ===== */
+html { font-size: 16px; }
+body {
+    background-color: #0a0a0a; /* Dark background */
+    color: #e0e0e0; /* Light grey text */
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+a {
+    color: #ff1a1a; /* Red links */
+    text-decoration: none;
+}
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: #ff1a1a; /* Red headings */
+    text-transform: uppercase;
+    text-align: center; /* Center all headings */
+}
+
+/* ===== HEADER & NAV ===== */
+header {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #ff1a1a; /* Red line */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* FIX 2: NAV BUTTONS SIDE BY SIDE */
+nav {
+    background-color: #1a1a1a;
+    padding: 15px;
+    display: flex; /* makes buttons go in a row */
+    justify-content: center; /* centers them */
+    gap: 15px; /* space between buttons */
+}
+nav a {
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #ff1a1a; /* Red buttons */
+}
+nav a:hover {
+    background-color: #cc0000; /* Darker red hover */
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #111;
+    border-radius: 8px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 30px 0;
+}
+
+/* FIX 1: CENTER ALL IMAGES */
+main img {
+    display: block;
+    margin: 15px auto; /* centers images */
+    max-width: 100%;
+    border-radius: 5px;
+    border: 2px solid #333;
+}
+
+/* FIX 1B: CENTER SERVICE CARDS */
+main div {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+a[href="Services.html"], 
+a[href="Enquiries.html"], 
+a[href="Contact.html"],
+button {
+    display: inline-block;
+    background-color: #ff1a1a;
+    color: #ffffff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 5px;
+    text-transform: uppercase;
+}
+a[href="Services.html"]:hover, 
+a[href="Enquiries.html"]:hover, 
+a[href="Contact.html"]:hover,
+button:hover {
+    background-color: #cc0000; /* Darker red */
+    color: #ffffff;
+}
+
+/* ===== FORMS ===== */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+select, 
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 4px;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: #ff1a1a;
+    outline: none;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: #111;
+    text-align: center;
+    padding: 20px;
+    border-top: 3px solid #ff1a1a;
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+/* ===== RESPONSIVE DESIGN - PART 3 ===== */
+
+/* TABLET: 768px and below */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em; /* smaller title */
+    }
+
+    nav {
+        flex-direction: column; /* stack nav buttons */
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav a {
+        width: 90%; /* full width buttons */
+        margin: 0 auto;
+    }
+
+    main {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    h1, h2, h3 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"], 
+    input[type="email"], 
+    input[type="tel"], 
+    select, 
+    textarea {
+        width: 100%; /* full width forms */
+    }
+}
+
+/* MOBILE: 480px and below */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    main {
+        padding: 10px;
+        margin: 5px;
+    }
+
+    a[href="Services.html"], 
+    a[href="Enquiries.html"], 
+    a[href="Contact.html"],
+    button {
+        width: 100%; /* buttons full width */
+        padding: 12px 10px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 15px 10px;
+    }
+}
+/* ===== GALLERY & LIGHTBOX ===== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #333;
+}
+
+.gallery-img:hover {
+    transform: scale(1.20);
+    border-color: #ff1a1a;
+}
+
+/* Lightbox Overlay */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border: 4px solid #ff1a1a;
+    border-radius: 8px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Responsive Gallery */
+@media screen and (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Focus states for accessibility */
+a:focus, button:focus, input:focus {
+    outline: 2px solid #ff1a1a;
+    outline-offset: 2px;
+}
